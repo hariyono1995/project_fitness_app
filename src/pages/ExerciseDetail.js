@@ -15,7 +15,6 @@ export const ExerciseDetail = () => {
   const [equipmentExercises, setEquipmentExercises] = useState([]);
 
   const { id } = useParams();
-  console.log("id", id);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -26,8 +25,11 @@ export const ExerciseDetail = () => {
         "https://youtube-search-and-download.p.rapidapi.com";
 
       const exerciseDetailData = await fetchData(
-        `${exerciseDbUrl}/exercises/exercise/${id}`
+        `${exerciseDbUrl}/exercises/exercise/${id}`,
+        exerciseOptions
       );
+
+      setExerciseDetail(exerciseDetailData);
 
       const exerciseVideosData = await fetchData(
         `${youtubeSearchUrl}/search?query=${exerciseDetailData.name} exercise`,
@@ -52,11 +54,11 @@ export const ExerciseDetail = () => {
 
   return (
     <Box sx={{ mt: { lg: "96px", xs: "60px" } }}>
-      <Detail exerciseDetail={exerciseDetail} />
+      {/* <Detail exerciseDetail={exerciseDetail} />
       <ExerciseVideos
         exerciseVideos={exerciseVideos}
         name={exerciseDetail.name}
-      />
+      /> */}
       <SimilarExercises
         targetMuscleExercises={targetMuscleExercises}
         equipmentExercises={equipmentExercises}

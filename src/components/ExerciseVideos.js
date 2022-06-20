@@ -19,7 +19,7 @@ export const ExerciseVideos = ({ exerciseVideos, name }) => {
         </span>{" "}
         exercise videos
       </Typography>
-      {/* <Stack
+      <Stack
         sx={{ flexDirection: { lg: "row" }, gap: { lg: "110px", xs: "0px" } }}
         justifyContent="flex-start"
         flexWrap="wrap"
@@ -29,7 +29,7 @@ export const ExerciseVideos = ({ exerciseVideos, name }) => {
           <a
             key={index}
             className="exercise-video"
-            href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
+            href={`https://www.youtube.com/watch?v=${item?.video?.videoId}`}
             target="_blank"
             rel="noreferrer"
           >
@@ -52,7 +52,7 @@ export const ExerciseVideos = ({ exerciseVideos, name }) => {
             </Box>
           </a>
         ))}
-      </Stack> */}
+      </Stack>
     </Box>
   );
 };
